@@ -67,12 +67,12 @@
 
 // Задача 2: Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.
 
-
+/*
 Console.Write("Input a first number:");
-double num1 = Convert.ToDouble(Console.ReadLine());
+int num1 = Convert.ToInt32(Console.ReadLine());
 
 Console.Write("Input a second number:");
-double num2 = Convert.ToDouble(Console.ReadLine());
+int num2 = Convert.ToInt32(Console.ReadLine());
 
 if (num1>num2)
     Console.Write($"The first number {num1} is greater than the second number {num2}");    
@@ -80,7 +80,25 @@ else if (num1<num2)
     Console.Write($"The second number {num2} is greater than the first number {num1}"); 
 else
     Console.Write("The numbers are equal");
-
+*/
 
 // Задача 4: Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел.
 
+Console.Write("Input a first number:");
+int num1 = Convert.ToInt32(Console.ReadLine());
+
+Console.Write("Input a second number:");
+int num2 = Convert.ToInt32(Console.ReadLine());
+
+Console.Write("Input a third number:");
+int num3 = Convert.ToInt32(Console.ReadLine());
+
+int maxNum=num1;
+
+if (num2>num1)
+    maxNum=num2; 
+
+if (num3>num1)
+    maxNum=num3; 
+    
+Console.Write("Max number is: " + maxNum);
