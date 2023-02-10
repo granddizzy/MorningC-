@@ -60,3 +60,22 @@
 // 31542 % 10000 = 1542
 
 // 453216 -> 32
+
+////////////////////////////////
+// HOME WORK 
+////////////////////////////////
+
+// Задача 2: Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.
+
+Console.Write("Input a first number:");
+double num1 = Convert.ToDouble(Console.ReadLine());
+
+Console.Write("Input a second number:");
+double num2 = Convert.ToDouble(Console.ReadLine());
+
+if (num1>num2)
+    Console.Write("The first number is greater than the second");    
+else if (num1<num2)
+    Console.Write("The seconf number is greater than the first"); 
+else
+    Console.Write("The numbers are equal");
