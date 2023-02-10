@@ -67,6 +67,7 @@
 
 // Задача 2: Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.
 
+
 Console.Write("Input a first number:");
 double num1 = Convert.ToDouble(Console.ReadLine());
 
@@ -74,8 +75,12 @@ Console.Write("Input a second number:");
 double num2 = Convert.ToDouble(Console.ReadLine());
 
 if (num1>num2)
-    Console.Write("The first number is greater than the second");    
+    Console.Write($"The first number {num1} is greater than the second number {num2}");    
 else if (num1<num2)
-    Console.Write("The seconf number is greater than the first"); 
+    Console.Write($"The second number {num2} is greater than the first number {num1}"); 
 else
     Console.Write("The numbers are equal");
+
+
+// Задача 4: Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел.
+
