@@ -107,6 +107,7 @@ Console.Write("Max number is: " + maxNum);
 
 // Задача 6: Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
 
+/*
 Console.Write("Input a number:");
 int num = Convert.ToInt32(Console.ReadLine());
 
@@ -116,4 +117,17 @@ if (remainder==0)
     Console.Write("Yes");
 else
     Console.Write("No");
+*/
 
+// Задача 8: Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
+
+Console.Write("Input a number:");
+int num = Convert.ToInt32(Console.ReadLine());
+
+int current = 2;
+
+while (current < num)
+{
+    Console.Write(current+" ");
+    current=current+2;
+}
