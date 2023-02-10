@@ -96,10 +96,10 @@ int num3 = Convert.ToInt32(Console.ReadLine());
 
 int maxNum=num1;
 
-if (num2>num1)
+if (num2>maxNum)
     maxNum=num2; 
 
-if (num3>num1)
+if (num3>maxNum)
     maxNum=num3; 
     
 Console.Write("Max number is: " + maxNum);
@@ -121,7 +121,8 @@ else
 
 // Задача 8: Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
 
-Console.Write("Input a number:");
+/*
+Console.Write("Input a positive number:");
 int num = Convert.ToInt32(Console.ReadLine());
 
 int current = 2;
@@ -131,3 +132,4 @@ while (current < num)
     Console.Write(current+" ");
     current=current+2;
 }
+*/
