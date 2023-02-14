@@ -99,36 +99,40 @@ Console.Write(result);
 ////////////////////////
 
 // Задача 10: Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
-
 /*
 int GetSecondDigit(int num)
 {
-    int units = num / 10;
-    int units2 = num / 100;
-    int res = units - units2*10;
+    int dozens = num / 10;
+    int res = dozens % 10;
     
     return res;
 }
 
+bool IsCorrectNumber(int num)
+{
+    return num >= 100 && num <= 999;
+} 
+
 Console.Write("Input a three-digit number:");
 int num = Convert.ToInt32(Console.ReadLine());
 
-int secondDigit = GetSecondDigit(num);
-
-Console.Write($"Second digit in {num} is {secondDigit}");
+if (IsCorrectNumber(num))
+{
+    int secondDigit = GetSecondDigit(num);
+    Console.Write($"Second digit in {num} is {secondDigit}");
+}
+else Console.Write($"You entered an invalid (not thee digits) number {num}");
 */
 
 //Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
 /*
 int GetThirdDigit(int num)
 {
-    if (num>-100 && num<100) return -1;
+    if (num<100) return -1;
 
-    while (num > 999 || num < -999) num=num/10;
+    while (num > 999) num = num / 10;
 
     int res = num % 10;
-    
-    if (res < 0) res=res*-1;
 
     return res;
 }
@@ -138,23 +142,31 @@ int num = Convert.ToInt32(Console.ReadLine());
 
 int thirdDigit = GetThirdDigit(num);
 
-if (thirdDigit==-1)
+if (thirdDigit == -1)
     Console.Write($"The third digit in {num} is missing");
 else
     Console.Write($"Third number in {num} is {thirdDigit}");
 */
 
 // Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
-
+/*
 bool IsWeekend(int dayNum)
 {
-    if (dayNum >= 1 && dayNum <= 5) return false;
-    else return true;
+    return dayNum==6 || dayNum==7;
+}
+
+bool isDayOfWeek(int num)
+{
+    return num>=1 && num<=7;
 }
 
 Console.Write("Input the number of the day of the week:");
 int num = Convert.ToInt32(Console.ReadLine());
 
-if (IsWeekend(num)) Console.Write($"Day of the week number {num} is a weekend");
-else Console.Write($"Day of the week number {num} is a working day");
-
+if (isDayOfWeek(num))
+{
+    if (IsWeekend(num)) Console.Write($"Day of the week number {num} is a weekend");
+    else Console.Write($"Day of the week number {num} is a working day");
+}
+else Console.Write($"Entered day number {num} is not a day of the week");
+*/
