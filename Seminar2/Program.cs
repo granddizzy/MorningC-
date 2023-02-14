@@ -143,3 +143,18 @@ if (thirdDigit==-1)
 else
     Console.Write($"Third number in {num} is {thirdDigit}");
 */
+
+// Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
+
+bool IsWeekend(int dayNum)
+{
+    if (dayNum >= 1 && dayNum <= 5) return false;
+    else return true;
+}
+
+Console.Write("Input the number of the day of the week:");
+int num = Convert.ToInt32(Console.ReadLine());
+
+if (IsWeekend(num)) Console.Write($"Day of the week number {num} is a weekend");
+else Console.Write($"Day of the week number {num} is a working day");
+
