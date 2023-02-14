@@ -94,4 +94,27 @@ bool result = IsQuard(num1, num2);
 Console.Write(result);
 */
 
+////////////////////////
+// HOME WORK
+////////////////////////
+
+// Задача 10: Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
+
+/*
+int GetSecondNumber(int num)
+{
+    int units = num / 10;
+    int units2 = num / 100;
+    int res = units - units2*10;
+    
+    return res;
+}
+
+Console.Write("Input a three-digit number:");
+int num = Convert.ToInt32(Console.ReadLine());
+
+int secondNumber = GetSecondNumber(num);
+
+Console.Write($"Seond number of {num} is {secondNumber}");
+*/
 
