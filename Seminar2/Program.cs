@@ -101,7 +101,7 @@ Console.Write(result);
 // Задача 10: Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
 
 /*
-int GetSecondNumber(int num)
+int GetSecondDigit(int num)
 {
     int units = num / 10;
     int units2 = num / 100;
@@ -113,8 +113,33 @@ int GetSecondNumber(int num)
 Console.Write("Input a three-digit number:");
 int num = Convert.ToInt32(Console.ReadLine());
 
-int secondNumber = GetSecondNumber(num);
+int secondDigit = GetSecondDigit(num);
 
-Console.Write($"Seond number of {num} is {secondNumber}");
+Console.Write($"Second digit in {num} is {secondDigit}");
 */
 
+//Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
+/*
+int GetThirdDigit(int num)
+{
+    if (num>-100 && num<100) return -1;
+
+    while (num > 999 || num < -999) num=num/10;
+
+    int res = num % 10;
+    
+    if (res < 0) res=res*-1;
+
+    return res;
+}
+
+Console.Write("Input a number:");
+int num = Convert.ToInt32(Console.ReadLine());
+
+int thirdDigit = GetThirdDigit(num);
+
+if (thirdDigit==-1)
+    Console.Write($"The third digit in {num} is missing");
+else
+    Console.Write($"Third number in {num} is {thirdDigit}");
+*/
