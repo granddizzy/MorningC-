@@ -155,7 +155,7 @@ bool IsWeekend(int dayNum)
     return dayNum==6 || dayNum==7;
 }
 
-bool isDayOfWeek(int num)
+bool IsDayOfWeek(int num)
 {
     return num>=1 && num<=7;
 }
@@ -163,7 +163,7 @@ bool isDayOfWeek(int num)
 Console.Write("Input the number of the day of the week:");
 int num = Convert.ToInt32(Console.ReadLine());
 
-if (isDayOfWeek(num))
+if (IsDayOfWeek(num))
 {
     if (IsWeekend(num)) Console.Write($"Day of the week number {num} is a weekend");
     else Console.Write($"Day of the week number {num} is a working day");
