@@ -90,3 +90,73 @@ int n = Convert.ToInt32(Console.ReadLine());
 
 SquareTable(n);
 */
+
+// Задача 19 Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
+
+int NumberОfDigits(int num)
+{
+    int testNum=num;
+    int numberОfDigits=0;
+    
+    while (testNum>0)
+    {
+        testNum=testNum/10;
+        numberОfDigits++;
+    }
+
+    return numberОfDigits;
+}
+
+//решение через математику
+bool IsPalindrome(int num)
+{
+    int numberOfDigits=NumberОfDigits(num);
+   
+    // if (numberOfDigits==1) return true; 
+
+    int max_i=numberOfDigits/2; 
+    int i=1;
+
+    while (i<=max_i)
+    {
+        //left digit
+        int divider = Convert.ToInt32(Math.Pow(10, numberOfDigits-i));
+        int leftDigit = num/divider - (num/(divider*10))*10; 
+
+        //right digit
+        divider = Convert.ToInt32(Math.Pow(10, i));
+        int rightDigit = (num % divider)/(divider/10); 
+         
+        if (leftDigit != rightDigit) return false;
+         
+        i++;
+    }
+
+    return true;
+}
+
+//решение через строку
+bool IsPalindromeString(int num)
+{
+    string str = Convert.ToString(num);
+    int numberOfSings = str.Length;
+
+    int max_i=numberOfSings/2; 
+    int i=1;
+    while (i<=max_i)
+    {
+        if (str[i-1] != str[numberOfSings-i]) return false;
+        i++;
+    }
+
+    return true;
+}
+
+Console.Write("Input a number: ");
+int num = Convert.ToInt32(Console.ReadLine());
+
+if (IsPalindromeString(num)) Console.WriteLine($"The number {num} is a palindrome");
+else Console.WriteLine($"The number {num} is a NOT a palindrome");
+
+if (IsPalindrome(num)) Console.WriteLine($"The number {num} is a palindrome");
+else Console.WriteLine($"The number {num} is a NOT a palindrome");
