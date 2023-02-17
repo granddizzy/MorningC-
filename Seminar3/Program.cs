@@ -93,40 +93,40 @@ SquareTable(n);
 
 // Задача 19 Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
 
-/*
-int NumberОfDigits(int num)
+//определение количества цифр
+int CountОfDigits(int num)
 {
-    int numberОfDigits=0;
+    int count = 0;
     
-    while (num>0)
+    while (num > 0)
     {
-        num=num/10;
-        numberОfDigits++;
+        num = num / 10;
+        count++;
     }
 
-    return numberОfDigits;
+    return count;
 }
 
-//решение через математику
+//решение через арифметику
 bool IsPalindrome(int num)
 {
-    int numberOfDigits=NumberОfDigits(num);
-   
-    // if (numberOfDigits==1) return true; 
+    int countOfDigits = CountОfDigits(num);
 
-    int max_i=numberOfDigits/2; 
-    int i=1;
+    //if (countOfDigits == 1) return true; 
 
-    while (i<=max_i)
+    int max_i = countOfDigits / 2; 
+    int i = 1;
+
+    while (i <= max_i)
     {
         //left digit
-        int divider = Convert.ToInt32(Math.Pow(10, numberOfDigits-i));
-        int leftDigit = num/divider - (num/(divider*10))*10; 
+        int divider = Convert.ToInt32(Math.Pow(10, countOfDigits - i));
+        int leftDigit = Convert.ToInt32(num / divider - (num / (divider * 10)) * 10); 
 
         //right digit
         divider = Convert.ToInt32(Math.Pow(10, i));
-        int rightDigit = (num % divider)/(divider/10); 
-         
+        int rightDigit = Convert.ToInt32((num % divider) / (divider / 10)); 
+        
         if (leftDigit != rightDigit) return false;
          
         i++;
@@ -139,20 +139,21 @@ bool IsPalindrome(int num)
 bool IsPalindromeString(string str)
 {
     //string str = Convert.ToString(num);
-    int numberOfSings = str.Length;
+    int countOfSings = str.Length;
 
-    int max_i=numberOfSings/2; 
-    int i=1;
-    while (i<=max_i)
+    int max_i = countOfSings / 2; 
+    int i = 1;
+    
+    while (i <= max_i)
     {
-        if (str[i-1] != str[numberOfSings-i]) return false;
+        if (str[i-1] != str[countOfSings-i]) return false;
         i++;
     }
 
     return true;
 }
 
-Console.Write("Input a number: ");
+Console.Write("Input a integer number: ");
 int num = Convert.ToInt32(Console.ReadLine());
 
 if (IsPalindromeString(Convert.ToString(num))) Console.WriteLine($"The number {num} is a palindrome");
@@ -160,13 +161,12 @@ else Console.WriteLine($"The number {num} is a NOT a palindrome");
 
 if (IsPalindrome(num)) Console.WriteLine($"The number {num} is a palindrome");
 else Console.WriteLine($"The number {num} is a NOT a palindrome");
-*/
+
 
 // Задача 21
 // Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
 // A (3,6,8); B (2,1,-7), -> 15.84
 // A (7,-5, 0); B (1,-1,9) -> 11.53
-
 
 /*
 double Distance3D(int xa, int ya, int za, int xb, int yb, int zb)
@@ -189,7 +189,7 @@ int zb = NumberInput("Input Zb");
 
 double dist = Distance3D(xa, ya, za, xb, yb, zb);
 
-Console.Write("Distance between points: "+Math.Round(dist,2));
+Console.Write("Distance between points: " + Math.Round(dist, 2));
 */
 
 // Задача 23
@@ -197,18 +197,19 @@ Console.Write("Distance between points: "+Math.Round(dist,2));
 // 3 -> 1, 8, 27
 // 5 -> 1, 8, 27, 64, 125
 
+/*
 void DegreeTable(int n, int degree)
 {
     int i = 1;
-    while (i < n)
+    while (i <= n)
     {
         Console.WriteLine(i + " - " + Math.Pow(i, degree));
         i++;
     }
 }
 
-
 Console.Write("Input N: ");
 int n = Convert.ToInt32(Console.ReadLine());
 
 DegreeTable(n, 3);
+*/
