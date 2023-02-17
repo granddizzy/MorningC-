@@ -95,12 +95,11 @@ SquareTable(n);
 
 int NumberОfDigits(int num)
 {
-    int testNum=num;
     int numberОfDigits=0;
     
-    while (testNum>0)
+    while (num>0)
     {
-        testNum=testNum/10;
+        num=num/10;
         numberОfDigits++;
     }
 
@@ -136,9 +135,9 @@ bool IsPalindrome(int num)
 }
 
 //решение через строку
-bool IsPalindromeString(int num)
+bool IsPalindromeString(string str)
 {
-    string str = Convert.ToString(num);
+    //string str = Convert.ToString(num);
     int numberOfSings = str.Length;
 
     int max_i=numberOfSings/2; 
@@ -155,7 +154,7 @@ bool IsPalindromeString(int num)
 Console.Write("Input a number: ");
 int num = Convert.ToInt32(Console.ReadLine());
 
-if (IsPalindromeString(num)) Console.WriteLine($"The number {num} is a palindrome");
+if (IsPalindromeString(Convert.ToString(num))) Console.WriteLine($"The number {num} is a palindrome");
 else Console.WriteLine($"The number {num} is a NOT a palindrome");
 
 if (IsPalindrome(num)) Console.WriteLine($"The number {num} is a palindrome");
