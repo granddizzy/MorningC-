@@ -168,6 +168,7 @@ else Console.WriteLine($"The number {num} is a NOT a palindrome");
 // A (7,-5, 0); B (1,-1,9) -> 11.53
 
 
+/*
 double Distance3D(int xa, int ya, int za, int xb, int yb, int zb)
 {
     return Math.Sqrt(Math.Pow(xb-xa,2) + Math.Pow(yb-ya,2) + Math.Pow(zb-za,2));
@@ -189,3 +190,25 @@ int zb = NumberInput("Input Zb");
 double dist = Distance3D(xa, ya, za, xb, yb, zb);
 
 Console.Write("Distance between points: "+Math.Round(dist,2));
+*/
+
+// Задача 23
+// Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
+// 3 -> 1, 8, 27
+// 5 -> 1, 8, 27, 64, 125
+
+void DegreeTable(int n, int degree)
+{
+    int i = 1;
+    while (i < n)
+    {
+        Console.WriteLine(i + " - " + Math.Pow(i, degree));
+        i++;
+    }
+}
+
+
+Console.Write("Input N: ");
+int n = Convert.ToInt32(Console.ReadLine());
+
+DegreeTable(n, 3);
