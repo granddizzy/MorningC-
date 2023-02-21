@@ -1,0 +1,15 @@
+D:\GB\MorningC#\Seminar4\bin\Debug\net6.0\Seminar4.exe
+D:\GB\MorningC#\Seminar4\bin\Debug\net6.0\Seminar4.deps.json
+D:\GB\MorningC#\Seminar4\bin\Debug\net6.0\Seminar4.runtimeconfig.json
+D:\GB\MorningC#\Seminar4\bin\Debug\net6.0\Seminar4.dll
+D:\GB\MorningC#\Seminar4\bin\Debug\net6.0\Seminar4.pdb
+D:\GB\MorningC#\Seminar4\obj\Debug\net6.0\Seminar4.csproj.AssemblyReference.cache
+D:\GB\MorningC#\Seminar4\obj\Debug\net6.0\Seminar4.GeneratedMSBuildEditorConfig.editorconfig
+D:\GB\MorningC#\Seminar4\obj\Debug\net6.0\Seminar4.AssemblyInfoInputs.cache
+D:\GB\MorningC#\Seminar4\obj\Debug\net6.0\Seminar4.AssemblyInfo.cs
+D:\GB\MorningC#\Seminar4\obj\Debug\net6.0\Seminar4.csproj.CoreCompileInputs.cache
+D:\GB\MorningC#\Seminar4\obj\Debug\net6.0\Seminar4.dll
+D:\GB\MorningC#\Seminar4\obj\Debug\net6.0\refint\Seminar4.dll
+D:\GB\MorningC#\Seminar4\obj\Debug\net6.0\Seminar4.pdb
+D:\GB\MorningC#\Seminar4\obj\Debug\net6.0\Seminar4.genruntimeconfig.cache
+D:\GB\MorningC#\Seminar4\obj\Debug\net6.0\ref\Seminar4.dll
