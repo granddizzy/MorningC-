@@ -156,6 +156,7 @@ Console.Write("Sum digits of num: " + res);
 // 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 //6, 1, 33 -> [6, 1, 33]
 
+/*
 int[] ArrayInput(int size)
 {
     int[] arr = new int[size];
@@ -188,3 +189,4 @@ int size = Convert.ToInt32(Console.ReadLine());
 
 int[] arr=ArrayInput(size);
 ShowArray(arr);
+*/
