@@ -102,6 +102,8 @@ ShowArray(newArray);
 /*
 int NaturalDegree(int a, int b)
 {
+    if (b==0) return 1;
+
     int res = a;
 
     for (int i=2; i<=b; i++)
@@ -155,7 +157,6 @@ Console.Write("Sum digits of num: " + res);
 // Задача 29: Напишите программу, которая задаёт массив из m элементов и выводит их на экран.
 // 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 //6, 1, 33 -> [6, 1, 33]
-
 /*
 int[] ArrayInput(int size)
 {
