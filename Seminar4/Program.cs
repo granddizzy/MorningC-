@@ -128,6 +128,7 @@ Console.Write("a to degree b: " + res);
 // 82 -> 10
 // 9012 -> 12
 
+/*
 int SumDigit(int num)
 {
     int res=0;
@@ -149,3 +150,41 @@ int num = Convert.ToInt32(Console.ReadLine());
 int res = SumDigit(num);
 
 Console.Write("Sum digits of num: " + res);
+*/
+
+// Задача 29: Напишите программу, которая задаёт массив из m элементов и выводит их на экран.
+// 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+//6, 1, 33 -> [6, 1, 33]
+
+int[] ArrayInput(int size)
+{
+    int[] arr = new int[size];
+
+    for (int i=0; i<size; i++)
+    {
+        Console.Write($"Input a {i+1} of massive number: ");
+        arr[i] = Convert.ToInt32(Console.ReadLine());
+
+    }
+
+    return arr;
+}
+
+void ShowArray(int[] array)
+{
+    Console.Write("[");
+
+    for(int i=0; i<array.Length; i++)
+    {
+        Console.Write(array[i]);
+        if (i<array.Length-1) Console.Write(", ");
+    }
+
+    Console.WriteLine("]");
+}
+
+Console.Write("Input size of massive: ");
+int size = Convert.ToInt32(Console.ReadLine());
+
+int[] arr=ArrayInput(size);
+ShowArray(arr);
