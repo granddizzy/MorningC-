@@ -99,6 +99,7 @@ ShowArray(newArray);
 // 3, 5 -> 243 (3⁵)
 // 2, 4 -> 16
 
+/*
 int NaturalDegree(int a, int b)
 {
     int res = a;
@@ -120,3 +121,31 @@ int b = Convert.ToInt32(Console.ReadLine());
 int res = NaturalDegree(a, b);
 
 Console.Write("a to degree b: " + res);
+*/
+
+// Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+// 452 -> 11
+// 82 -> 10
+// 9012 -> 12
+
+int SumDigit(int num)
+{
+    int res=0;
+    int temp=0;
+
+    while (num>0)
+    {
+        temp=num/10;
+        res=res+num-temp*10;
+        num=temp;
+    }
+
+    return res;
+}
+
+Console.Write("Input a integer number: ");
+int num = Convert.ToInt32(Console.ReadLine());
+
+int res = SumDigit(num);
+
+Console.Write("Sum digits of num: " + res);
