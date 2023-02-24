@@ -303,17 +303,17 @@ Console.WriteLine("Sum: "+sum);
 //[3 7 22 2 78] -> 76
 
 /*
-int[] CreateRandomArray(int size, int minValue, int maxValue)
+double[] CreateRandomArray(int size, int minValue, int maxValue)
 {
-    int[] array = new int[size];
+    double[] array = new double[size];
 
-    for (int i=0; i<size; i++)
-        array[i] =  new Random().Next(minValue, maxValue+1);
+    for (int i=0; i<size; i++)   
+        array[i] =  Math.Round(new Random().Next(minValue, maxValue+1) + new Random().NextDouble(),2);
 
     return array;
 }
 
-void ShowArray(int[] arr)
+void ShowArray(double[] arr)
 {
     for(int i = 0; i < arr.Length; i++)
         Console.Write(arr[i] + " ");
@@ -321,10 +321,10 @@ void ShowArray(int[] arr)
     Console.WriteLine();
 }
 
-int GetDifferenceMaxMin(int[] arr)
+double GetDifferenceMaxMin(double[] arr)
 {
-    int max=arr[0];
-    int min=arr[0];
+    double max=arr[0];
+    double min=arr[0];
 
     for (int i=1; i<arr.Length; i++)
     {
@@ -344,11 +344,11 @@ int min = Convert.ToInt32(Console.ReadLine());
 Console.Write("Input array max value: ");
 int max = Convert.ToInt32(Console.ReadLine());
 
-int[] arr = CreateRandomArray(size, min, max);
+double[] arr = CreateRandomArray(size, min, max);
 
 ShowArray(arr);
 
-int diff = GetDifferenceMaxMin(arr);
+double diff = GetDifferenceMaxMin(arr);
 
 Console.WriteLine("Difference max value and min value of array: "+diff);
 */
