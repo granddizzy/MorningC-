@@ -251,5 +251,53 @@ Console.Write("Number of even numbers: " + count);
 // [3, 7, 23, 12] -> 19
 //[-4, -6, 89, 6] -> 0
 
+/*
+int[] CreateRandomArray(int size, int minValue, int maxValue)
+{
+    int[] array = new int[size];
+
+    for (int i=0; i<size; i++)
+    {
+        array[i] =  new Random().Next(minValue, maxValue+1);
+    }
+
+    return array;
+}
+
+void ShowArray(int[] arr)
+{
+    for(int i = 0; i < arr.Length; i++)
+        Console.Write(arr[i] + " ");
+
+    Console.WriteLine();
+}
+
+int GetSum(int[]arr)
+{
+    int sum=0;
+
+    for (int i=0; i<arr.Length; i=i+2)
+        sum += arr[i];
+
+    return sum;
+}
+
+Console.Write("Input array size: ");
+int size = Convert.ToInt32(Console.ReadLine());
+
+Console.Write("Input array min value: ");
+int min = Convert.ToInt32(Console.ReadLine());
+
+Console.Write("Input array max value: ");
+int max = Convert.ToInt32(Console.ReadLine());
+
+int[] arr = CreateRandomArray(size, min, max);
+
+ShowArray(arr);
+
+int sum = GetSum(arr);
+Console.Write("Sum: "+sum);
+*/
+
 //Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 //[3 7 22 2 78] -> 76
