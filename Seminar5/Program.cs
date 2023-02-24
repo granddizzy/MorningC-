@@ -242,7 +242,7 @@ int count = CountОfEvenNumbers(arr);
 
 ShowArray(arr);
 
-Console.Write("Number of even numbers: " + count);
+Console.WriteLine("Number of even numbers: " + count);
 */
 
 // Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
@@ -292,7 +292,7 @@ int[] arr = CreateRandomArray(size, min, max);
 ShowArray(arr);
 
 int sum = GetSum(arr);
-Console.Write("Sum: "+sum);
+Console.WriteLine("Sum: "+sum);
 */
 
 //Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
