@@ -276,7 +276,7 @@ int GetSum(int[]arr)
 {
     int sum=0;
 
-    for (int i=0; i<arr.Length; i=i+2)
+    for (int i=1; i<arr.Length; i=i+2)
         sum += arr[i];
 
     return sum;
@@ -310,7 +310,7 @@ double[] CreateRandomArray(int size, int minValue, int maxValue)
     for (int i=0; i<size; i++) 
     {  
         //array[i] =  Math.Round(new Random().Next(minValue, maxValue+1) + new Random().NextDouble(),2);
-        array[i] =  new Random().Next(minValue*100, maxValue*100);
+        array[i] = new Random().Next(minValue*100, maxValue*100);
         array[i] = array[i] / 100;
     }
 
