@@ -23,10 +23,10 @@ void ShowArray(int[] arr)
 void ReverseArray(int[] arr)
 {
     for(int i=0, j = arr.Length - 1; i<j; i++, j--)
-    {
-        int temp = arr[i];
+        {
+            int temp = arr[i];
         arr[i] = arr[j];
-        arr[j] = temp;
+         arr[j] = temp;
     }
 }
 
@@ -181,3 +181,35 @@ Console.Write("Count of positive numbers: "+CountOfPositiveNumbers(m));
 
 // Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
 // b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
+
+// k1*x+b1=k2*x+b2   
+// x=(b2-b1)/(k1-k2)
+// y=k1*x+b1
+
+/*
+void FindIntersection(double b1, double b2, double k1, double k2)
+{
+    if (k1==k2) Console.WriteLine("There are no intersection points. The lines are parallel.");
+    else
+    {
+        double x=(b2-b1)/(k1-k2);
+        double y=k1*x+b1;
+
+        Console.WriteLine($"Intersection coordinates x:{x} y:{y}");
+    }
+}
+
+Console.Write("Input b1: ");
+double b1 = Convert.ToInt32(Console.ReadLine());
+
+Console.Write("Input k1: ");
+double k1 = Convert.ToInt32(Console.ReadLine());
+
+Console.Write("Input b2: ");
+double b2 = Convert.ToInt32(Console.ReadLine());
+
+Console.Write("Input k2: ");
+double k2 = Convert.ToInt32(Console.ReadLine());
+
+FindIntersection(b1, b2, k1, k2);
+*/
