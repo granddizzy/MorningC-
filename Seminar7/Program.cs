@@ -197,6 +197,7 @@ void SearchElement(int[,] arr, int row, int col)
         Console.WriteLine($"Element value with indexes [{row},{col}]: {arr[row,col]}");
 }
 
+/*
 int[,] arr = CreateRandom2dArray();
 
 int row = -1;  
@@ -216,3 +217,37 @@ while (col<0)
 }
 
 SearchElement(arr, row, col);
+*/
+
+// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+
+double[] ArithmeticMeanOfColumns(int[,] arr)
+{
+    double[] resArr = new double[arr.GetLength(1)];
+    double sum=0;
+
+    for (int i=0; i<arr.GetLength(1); i++)
+    {
+        sum=0;    
+        for (int j=0; j<arr.GetLength(0); j++)
+           sum += arr[j,i];
+           
+        resArr[i] = sum / arr.GetLength(0);
+    }  
+    
+    return resArr;
+}
+
+int[,] arr = CreateRandom2dArray();
+
+double[] arrArithmeticMeansOfColumns = ArithmeticMeanOfColumns(arr);
+
+Show2dArray(arr);
+
+for (int i=1; i<=arrArithmeticMeansOfColumns.Length; i++)
+    Console.WriteLine($"Arithmetic mean of column {i} is {Math.Round(arrArithmeticMeansOfColumns[i-1],2)}");
