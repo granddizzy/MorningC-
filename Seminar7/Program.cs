@@ -3,16 +3,26 @@
 
 int[,] CreateRandom2dArray()
 {
-    Console.Write("Input a number rows:");
-    int rows = Convert.ToInt32(Console.ReadLine());
+    int rows = 0;  
+    while (rows<=0)
+    {
+        Console.Write("Input the number of array rows:");
+        rows = Convert.ToInt32(Console.ReadLine());
+        if (rows<=0) Console.Write("Invalid number of rows! ");
+    }
 
-    Console.Write("Input a number cols:");
-    int cols = Convert.ToInt32(Console.ReadLine());
+    int cols = 0;  
+    while (cols<=0)
+    {
+        Console.Write("Input the number of array columns:");
+        cols = Convert.ToInt32(Console.ReadLine());
+        if (cols<=0) Console.Write("Invalid number of columns! ");
+    }
 
-    Console.Write("Input a minValue:");
+    Console.Write("Input a min value:");
     int minValue = Convert.ToInt32(Console.ReadLine());
 
-    Console.Write("Input a maxValue:");
+    Console.Write("Input a max value:");
     int maxValue = Convert.ToInt32(Console.ReadLine());
 
     int[,] array = new int[rows, cols];
@@ -140,23 +150,23 @@ double[,] CreateRandom2dDoubleArray()
     int rows = 0;  
     while (rows<=0)
     {
-        Console.Write("Input a number rows:");
+        Console.Write("Input the number of array rows:");
         rows = Convert.ToInt32(Console.ReadLine());
-        if (rows<=0) Console.Write("Invald rows. ");
+        if (rows<=0) Console.Write("Invalid number of rows! ");
     }
 
     int cols = 0;  
     while (cols<=0)
     {
-        Console.Write("Input a number cols:");
+        Console.Write("Input the number of array columns:");
         cols = Convert.ToInt32(Console.ReadLine());
-        if (cols<=0) Console.Write("Invald cols. ");
+        if (cols<=0) Console.Write("Invalid number of columns! ");
     }
 
-    Console.Write("Input a minValue:");
+    Console.Write("Input a min value:");
     double minValue = Convert.ToDouble(Console.ReadLine());
 
-    Console.Write("Input a maxValue:");
+    Console.Write("Input a max value:");
     double maxValue = Convert.ToDouble(Console.ReadLine());
 
     double[,] array = new double[rows, cols];
@@ -172,3 +182,37 @@ double[,] CreateRandom2dDoubleArray()
 double[,] arr = CreateRandom2dDoubleArray();
 Show2dDoubleArray(arr);
 */
+
+// Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+
+void SearchElement(int[,] arr, int row, int col)
+{
+    if (row>arr.GetLength(0)-1 || col>arr.GetLength(1))
+        Console.WriteLine("There is no element with such indexes in the array");
+    else
+        Console.WriteLine($"Element value with indexes [{row},{col}]: {arr[row,col]}");
+}
+
+int[,] arr = CreateRandom2dArray();
+
+int row = -1;  
+while (row<0)
+{
+    Console.Write("Enter the row number of the element you are looking for:");
+    row = Convert.ToInt32(Console.ReadLine());
+    if (row<0) Console.Write("Invalid row number. ");
+}
+
+int col = -1;  
+while (col<0)
+{
+    Console.Write("Enter the column number of the element you are looking for:");
+    col = Convert.ToInt32(Console.ReadLine());
+    if (col<0) Console.Write("Invalid column number. ");
+}
+
+SearchElement(arr, row, col);
