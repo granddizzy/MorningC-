@@ -173,7 +173,7 @@ double[,] CreateRandom2dDoubleArray()
 
     for (int i=0; i<rows; i++)
         for (int j=0; j<cols; j++)
-            array[i,j] =  Math.Round(new Random().NextDouble() * (maxValue - minValue) + maxValue, 2);
+            array[i,j] =  Math.Round(new Random().NextDouble() * (maxValue - minValue) + minValue, 2);
 
     return array;
 }
@@ -189,32 +189,25 @@ Show2dDoubleArray(arr);
 // 5 9 2 3
 // 8 4 2 4
 
+/*
 void SearchElement(int[,] arr, int row, int col)
 {
-    if (row>arr.GetLength(0)-1 || col>arr.GetLength(1))
-        Console.WriteLine("There is no element with such indexes in the array");
+    if (row>arr.GetLength(0)+1 
+        || row<=0
+        || col>arr.GetLength(1)+1
+        || col<=0)
+        Console.WriteLine($"There is no element with indexes [{row},{col}] in the array");
     else
-        Console.WriteLine($"Element value with indexes [{row},{col}]: {arr[row,col]}");
+        Console.WriteLine($"Element value with indexes [{row},{col}]: {arr[row-1,col-1]}");
 }
 
-/*
 int[,] arr = CreateRandom2dArray();
 
-int row = -1;  
-while (row<0)
-{
-    Console.Write("Enter the row number of the element you are looking for:");
-    row = Convert.ToInt32(Console.ReadLine());
-    if (row<0) Console.Write("Invalid row number. ");
-}
+Console.Write("Enter the row number of the element you are looking for:");
+int row = Convert.ToInt32(Console.ReadLine());
 
-int col = -1;  
-while (col<0)
-{
-    Console.Write("Enter the column number of the element you are looking for:");
-    col = Convert.ToInt32(Console.ReadLine());
-    if (col<0) Console.Write("Invalid column number. ");
-}
+Console.Write("Enter the column number of the element you are looking for:");
+int col = Convert.ToInt32(Console.ReadLine());
 
 SearchElement(arr, row, col);
 */
@@ -226,7 +219,7 @@ SearchElement(arr, row, col);
 // 8 4 2 4
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
-double[] ArithmeticMeanOfColumns(int[,] arr)
+double[] ArithmeticMeansOfColumns(int[,] arr)
 {
     double[] resArr = new double[arr.GetLength(1)];
     double sum=0;
@@ -243,11 +236,13 @@ double[] ArithmeticMeanOfColumns(int[,] arr)
     return resArr;
 }
 
+
 int[,] arr = CreateRandom2dArray();
 
-double[] arrArithmeticMeansOfColumns = ArithmeticMeanOfColumns(arr);
+double[] arrArithmeticMeansOfColumns = ArithmeticMeansOfColumns(arr);
 
 Show2dArray(arr);
 
-for (int i=1; i<=arrArithmeticMeansOfColumns.Length; i++)
-    Console.WriteLine($"Arithmetic mean of column {i} is {Math.Round(arrArithmeticMeansOfColumns[i-1],2)}");
+Console.Write("Arithmetic mean of each column: ");
+for (int i=0; i<arrArithmeticMeansOfColumns.Length; i++)
+    Console.Write(Math.Round(arrArithmeticMeansOfColumns[i],2) + " ");
