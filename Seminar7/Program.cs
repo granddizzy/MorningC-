@@ -190,7 +190,7 @@ Show2dDoubleArray(arr);
 // 5 9 2 3
 // 8 4 2 4
 
-
+/*
 void SearchElement(int[,] arr, int row, int col)
 {
     if (row>=1 && row<= arr.GetLength(0)
@@ -210,6 +210,7 @@ int col = Convert.ToInt32(Console.ReadLine());
 
 Show2dArray(arr);
 SearchElement(arr, row, col);
+*/
 
 // Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 // Например, задан массив:
