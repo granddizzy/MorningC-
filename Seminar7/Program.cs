@@ -79,6 +79,7 @@ int[,] CreateRandomArray()
 // Найдите элементы, у которых оба индекса чётные, 
 // и замените эти элементы на их квадраты.
 
+/*
 void Replacement(int[,] arr)
 {
     for (int i=0; i<arr.GetLength(0); i=i+2)
@@ -91,7 +92,7 @@ void Replacement(int[,] arr)
     }
 }
 
-/*
+
 int[,] arr = CreateRandom2dArray();
 Show2dArray(arr);
 Replacement(arr);
@@ -103,7 +104,7 @@ Show2dArray(arr);
 // Найдите сумму элементов, находящихся на главной диагонали 
 // (с индексами (0,0); (1;1) и т.д.
 
-
+/*
 int GetSumDiagonal(int[,] arr)
 {
     int res=0;
@@ -114,7 +115,7 @@ int GetSumDiagonal(int[,] arr)
     return res;
 }
 
-/*
+
 int[,] arr = CreateRandom2dArray();
 int sum = GetSumDiagonal(arr);
 
@@ -132,6 +133,7 @@ Console.WriteLine(sum);
 // 1 -3,3 8 -9,9
 // 8 7,8 -7,1 9
 
+/*
 void Show2dDoubleArray(double[,] arr)
 {
     for(int i = 0; i < arr.GetLength(0); i++)
@@ -178,7 +180,6 @@ double[,] CreateRandom2dDoubleArray()
     return array;
 }
 
-/*
 double[,] arr = CreateRandom2dDoubleArray();
 Show2dDoubleArray(arr);
 */
@@ -189,16 +190,14 @@ Show2dDoubleArray(arr);
 // 5 9 2 3
 // 8 4 2 4
 
-/*
+
 void SearchElement(int[,] arr, int row, int col)
 {
-    if (row>arr.GetLength(0)+1 
-        || row<=0
-        || col>arr.GetLength(1)+1
-        || col<=0)
-        Console.WriteLine($"There is no element with indexes [{row},{col}] in the array");
-    else
+    if (row>=1 && row<= arr.GetLength(0)+1
+        && col>=1 && col<= arr.GetLength(1)+1)
         Console.WriteLine($"Element value with indexes [{row},{col}]: {arr[row-1,col-1]}");
+    else
+        Console.WriteLine($"There is no element with indexes [{row},{col}] in the array");
 }
 
 int[,] arr = CreateRandom2dArray();
@@ -209,8 +208,8 @@ int row = Convert.ToInt32(Console.ReadLine());
 Console.Write("Enter the column number of the element you are looking for:");
 int col = Convert.ToInt32(Console.ReadLine());
 
+Show2dArray(arr);
 SearchElement(arr, row, col);
-*/
 
 // Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 // Например, задан массив:
@@ -219,6 +218,7 @@ SearchElement(arr, row, col);
 // 8 4 2 4
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
+/*
 double[] ArithmeticMeansOfColumns(int[,] arr)
 {
     double[] resArr = new double[arr.GetLength(1)];
@@ -236,7 +236,6 @@ double[] ArithmeticMeansOfColumns(int[,] arr)
     return resArr;
 }
 
-
 int[,] arr = CreateRandom2dArray();
 
 double[] arrArithmeticMeansOfColumns = ArithmeticMeansOfColumns(arr);
@@ -246,3 +245,4 @@ Show2dArray(arr);
 Console.Write("Arithmetic mean of each column: ");
 for (int i=0; i<arrArithmeticMeansOfColumns.Length; i++)
     Console.Write(Math.Round(arrArithmeticMeansOfColumns[i],2) + " ");
+*/
