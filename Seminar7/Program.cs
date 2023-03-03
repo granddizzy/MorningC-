@@ -193,8 +193,8 @@ Show2dDoubleArray(arr);
 
 void SearchElement(int[,] arr, int row, int col)
 {
-    if (row>=1 && row<= arr.GetLength(0)+1
-        && col>=1 && col<= arr.GetLength(1)+1)
+    if (row>=1 && row<= arr.GetLength(0)
+        && col>=1 && col<= arr.GetLength(1))
         Console.WriteLine($"Element value with indexes [{row},{col}]: {arr[row-1,col-1]}");
     else
         Console.WriteLine($"There is no element with indexes [{row},{col}] in the array");
