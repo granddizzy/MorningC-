@@ -219,11 +219,11 @@ SearchElement(arr, row, col);
 // 8 4 2 4
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
-/*
+
 double[] ArithmeticMeansOfColumns(int[,] arr)
 {
     double[] resArr = new double[arr.GetLength(1)];
-    int sum=0;
+    double sum=0;
 
     for (int i=0; i<arr.GetLength(1); i++)
     {
@@ -246,4 +246,3 @@ Show2dArray(arr);
 Console.Write("Arithmetic mean of each column: ");
 for (int i=0; i<arrArithmeticMeansOfColumns.Length; i++)
     Console.Write(Math.Round(arrArithmeticMeansOfColumns[i],2) + " ");
-*/
