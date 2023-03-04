@@ -223,7 +223,7 @@ SearchElement(arr, row, col);
 double[] ArithmeticMeansOfColumns(int[,] arr)
 {
     double[] resArr = new double[arr.GetLength(1)];
-    double sum=0;
+    int sum=0;
 
     for (int i=0; i<arr.GetLength(1); i++)
     {
