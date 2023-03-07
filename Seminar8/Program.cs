@@ -296,3 +296,102 @@ else
     Console.WriteLine("Sorry, but these matrices cannot be multiplied!");
 
 */
+
+// Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+// Массив размером 2 x 2 x 2
+// 66(0,0,0) 25(0,1,0)
+// 34(1,0,0) 41(1,1,0)
+// 27(0,0,1) 90(0,1,1)
+// 26(1,0,1) 55(1,1,1)
+
+/*
+int[,,] CreateRandom3dArray()
+{
+    int x = 0;  
+    while (x<=0)
+    {
+        Console.Write("Input array size x:");
+        x = Convert.ToInt32(Console.ReadLine());
+        if (x<=0) Console.Write("Invalid array size x! ");
+    }
+
+    int y = 0;  
+    while (y<=0)
+    {
+        Console.Write("Input array size y:");
+        y = Convert.ToInt32(Console.ReadLine());
+        if (y<=0) Console.Write("Invalid array size y! ");
+    }
+
+    int z = 0;  
+    while (z<=0)
+    {
+        Console.Write("Input array size z:");
+        z = Convert.ToInt32(Console.ReadLine());
+        if (z<=0) Console.Write("Invalid array size z! ");
+    }
+
+    int amountNumbers = 0, minValue = 0, maxValue = 0;
+    while (amountNumbers<x*y*z)
+    {
+        Console.Write("Input a min value:");
+        minValue = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Input a max value:");
+        maxValue = Convert.ToInt32(Console.ReadLine());
+
+        amountNumbers=maxValue-minValue;
+        
+        if (amountNumbers<x*y*z)
+            Console.WriteLine("Еhe number of possible unique values between min and max is less than necessary!!! ");
+    }
+
+    int[,,] array = new int[x, y, z];
+
+    for (int i=0; i<x; i++)
+        for (int j=0; j<y; j++)
+            for (int k=0; k<z; k++)
+            {
+                int value = 0; 
+                while (value==0 || IsContainedIn3dArray(array, value))
+                {
+                    value =  new Random().Next(minValue, maxValue+1);
+                    Console.WriteLine(value);
+                }
+
+                array[i,j,k] = value; 
+            }
+
+    return array;
+}
+
+bool IsContainedIn3dArray(int[,,] arr, int value)
+{
+    for (int i=0; i<arr.GetLength(0); i++)
+        for (int j=0; j<arr.GetLength(1); j++)
+            for (int k=0; k<arr.GetLength(2); k++)
+                if (arr[i,j,k]==value)
+                    return true;
+    return false;
+}
+
+void Show3dArray(int[,,] arr)
+{
+    for (int k=0; k<arr.GetLength(2); k++)
+    {    
+        for(int i = 0; i < arr.GetLength(0); i++)       
+        {
+            for (int j=0; j<arr.GetLength(1); j++)
+                Console.Write(arr[i,j,k] + $"({i},{j},{k})" + " ");
+
+            Console.WriteLine();
+        }
+        Console.WriteLine();
+    }
+
+    Console.WriteLine();
+}
+
+int[,,] arr = CreateRandom3dArray();
+Show3dArray(arr);
+*/
