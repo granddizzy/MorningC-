@@ -208,3 +208,41 @@ Show2dArray(arr);
 SortDesc(arr);
 Show2dArray(arr);
 */
+
+// Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// 5 2 6 7
+// Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
+
+/*
+int[] GetSumElementsRows(int[,] arr)
+{
+    int[] sumArr = new int[arr.GetLength(0)];
+
+    for (int i=0; i<arr.GetLength(0); i++)
+        for (int j=0; j<arr.GetLength(1); j++)
+            sumArr[i] += arr[i,j];  
+
+    return sumArr;
+}
+
+int GetNumRowMinSum(int[,] arr)
+{
+    int[] sumArr = GetSumElementsRows(arr);
+    int numRow=0;
+
+    for (int i=1; i<sumArr.Length; i++)
+        if (sumArr[i]<sumArr[numRow])
+            numRow=i;
+
+    return numRow+1;
+}
+
+int[,] arr = CreateRandom2dArray();
+Show2dArray(arr);
+Console.WriteLine("Row number with minimum sum of elements: " + GetNumRowMinSum(arr));
+
+*/
