@@ -331,8 +331,8 @@ int[,,] CreateRandom3dArray()
         if (z<=0) Console.Write("Invalid array size z! ");
     }
 
-    int amountNumbers = 0, minValue = 0, maxValue = 0;
-    while (amountNumbers<x*y*z)
+    int amountNumbers = 0, minValue = 0, maxValue = 0, countElements=x*y*z;
+    while (amountNumbers<countElements)
     {
         Console.Write("Input a min value:");
         minValue = Convert.ToInt32(Console.ReadLine());
@@ -342,8 +342,8 @@ int[,,] CreateRandom3dArray()
 
         amountNumbers=maxValue-minValue;
         
-        if (amountNumbers<x*y*z)
-            Console.WriteLine("Еhe number of possible unique values between min and max is less than necessary!!! ");
+        if (amountNumbers<countElements)
+            Console.WriteLine("The number of possible unique values between min and max is less than necessary!!! ");
     }
 
     int[,,] array = new int[x, y, z];
@@ -354,11 +354,8 @@ int[,,] CreateRandom3dArray()
             {
                 int value = 0; 
                 while (value==0 || IsContainedIn3dArray(array, value))
-                {
                     value =  new Random().Next(minValue, maxValue+1);
-                    Console.WriteLine(value);
-                }
-
+    
                 array[i,j,k] = value; 
             }
 
@@ -386,7 +383,6 @@ void Show3dArray(int[,,] arr)
 
             Console.WriteLine();
         }
-        Console.WriteLine();
     }
 
     Console.WriteLine();
