@@ -246,3 +246,53 @@ Show2dArray(arr);
 Console.WriteLine("Row number with minimum sum of elements: " + GetNumRowMinSum(arr));
 
 */
+
+// Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+// Например, даны 2 матрицы:
+// 2 4 | 3 4
+// 3 2 | 3 3
+// Результирующая матрица будет:
+// 18 20
+// 15 18
+
+/*
+int[,] MatrixMultiplication(int[,] matrix1, int[,] matrix2)
+{
+    // Результатом умножения матриц Am×n и Bn×k будет матрица Cm×k такая, что элемент матрицы C, стоящий в i-той строке и j-том столбце (cij), 
+    // равен сумме произведений элементов i-той строки матрицы A на соответствующие элементы j-того столбца матрицы B:
+    // cij = ai1 · b1j + ai2 · b2j + ... + ain · bnj
+
+    int[,] newMatrix = new int[matrix1.GetLength(0), matrix2.GetLength(1)];
+
+    for (int i=0; i<newMatrix.GetLength(0); i++)
+        for (int j=0; j<newMatrix.GetLength(1); j++)
+            for (int k=0; k<matrix1.GetLength(1); k++)
+                newMatrix[i,j] += matrix1[i, k] * matrix2[k, j];
+
+    return newMatrix;
+}
+
+bool CheckPpossibilityMmultiplication(int[,] matrix1, int[,] matrix2)
+{
+    // Операция умножения двух матриц выполнима только в том случае, если число столбцов в первом сомножителе равно числу строк во втором
+
+    if (matrix1.GetLength(1)==matrix2.GetLength(0))
+        return true;
+    
+    return false;
+}
+
+Console.WriteLine("First matrix parameters:");
+int[,] matrix1 = CreateRandom2dArray();
+Console.WriteLine("Second matrix parameters:");
+int[,] matrix2 = CreateRandom2dArray();
+
+Show2dArray(matrix1);
+Show2dArray(matrix2);
+
+if (CheckPpossibilityMmultiplication(matrix1, matrix2))
+    Show2dArray(MatrixMultiplication(matrix1, matrix2));
+else
+    Console.WriteLine("Sorry, but these matrices cannot be multiplied!");
+
+*/
