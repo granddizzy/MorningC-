@@ -395,3 +395,125 @@ void Show3dArray(int[,,] arr)
 int[,,] arr = CreateRandom3dArray();
 Show3dArray(arr);
 */
+
+// Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
+// Например, на выходе получается вот такой массив:
+// 01 02 03 04
+// 12 13 14 05
+// 11 16 15 06
+// 10 09 08 07
+
+/*
+int[,] CreateSpiralArray()
+{
+    int rows = 0;  
+    while (rows<=0)
+    {
+        Console.Write("Input the number of array rows:");
+        rows = Convert.ToInt32(Console.ReadLine());
+        if (rows<=0) Console.Write("Invalid number of rows! ");
+    }
+
+    int cols = 0;  
+    while (cols<=0)
+    {
+        Console.Write("Input the number of array columns:");
+        cols = Convert.ToInt32(Console.ReadLine());
+        if (cols<=0) Console.Write("Invalid number of columns! ");
+    }
+
+    int value=1;
+
+    int[,] array = new int[rows, cols];
+
+    int i=0,j=0, count=0;
+
+    while (value<=rows*cols)
+    {
+        while (j<cols-count)
+        {
+            array[i,j] =  value;
+            value++;
+            j++;
+        }
+
+        j--; i++;
+        while (i<rows-count)
+        {   
+            array[i,j] =  value;
+            value++;
+            i++;   
+        }
+
+        i--; j--;
+        while (j>=count)
+        {
+            array[i,j] =  value;
+            value++;
+            j--;
+        }
+
+        j++; i--;
+        while (i>count)
+        {
+            array[i,j] =  value;
+            value++;
+            i--;
+        }
+
+        i++; j++; count++;
+    }
+
+    return array;
+}
+
+int GetMaxElement(int[,] arr)
+{
+    int res = arr[0,0];
+
+    for(int i = 0; i < arr.GetLength(0); i++)
+        for (int j=0; j<arr.GetLength(1); j++)
+            if (arr[i,j]>res) res = arr[i,j];
+
+    return res;
+}
+
+int CountOfDigit(int num)
+{
+    int count=1;
+    while (num > 0)
+    {
+        num = num / 10;
+        count++;
+    }
+    
+    return count;
+}
+
+void ShowSpiralArray(int[,] arr)
+{
+    int max = GetMaxElement(arr);
+
+    for(int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j=0; j<arr.GetLength(1); j++)
+        {
+            int CountOfZero = CountOfDigit(max) - CountOfDigit(arr[i,j]);
+
+            string zeroString = string.Empty;
+
+            for(int k=0; k<CountOfZero; k++)
+                zeroString = zeroString + "0";
+
+            Console.Write(zeroString + arr[i,j] + " ");
+        }
+
+        Console.WriteLine();
+    }
+
+    Console.WriteLine();
+}
+
+int[,] arr = CreateSpiralArray();
+ShowSpiralArray(arr);
+*/
