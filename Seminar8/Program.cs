@@ -422,15 +422,13 @@ int[,] CreateSpiralArray()
         if (cols<=0) Console.Write("Invalid number of columns! ");
     }
 
-    int value=1;
-
     int[,] array = new int[rows, cols];
 
-    int i=0,j=0, count=0;
+    int i=0, j=0, count=0, value=1, countElements=rows*cols;
 
-    while (value<=rows*cols)
+    while (value<=countElements)
     {
-        while (j<cols-count)
+        while (j<cols-count && value<=countElements)
         {
             array[i,j] =  value;
             value++;
@@ -438,15 +436,15 @@ int[,] CreateSpiralArray()
         }
 
         j--; i++;
-        while (i<rows-count)
-        {   
+        while (i<rows-count  && value<=countElements)
+        {
             array[i,j] =  value;
             value++;
             i++;   
         }
 
         i--; j--;
-        while (j>=count)
+        while (j>=count && value<=countElements)
         {
             array[i,j] =  value;
             value++;
@@ -454,10 +452,10 @@ int[,] CreateSpiralArray()
         }
 
         j++; i--;
-        while (i>count)
+        while (i>count  && value<=countElements)
         {
             array[i,j] =  value;
-            value++;
+            value++; 
             i--;
         }
 
@@ -480,7 +478,9 @@ int GetMaxElement(int[,] arr)
 
 int CountOfDigit(int num)
 {
-    int count=1;
+    if (num==0) return 1;
+
+    int count=0;
     while (num > 0)
     {
         num = num / 10;
