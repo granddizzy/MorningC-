@@ -244,7 +244,6 @@ int GetNumRowMinSum(int[,] arr)
 int[,] arr = CreateRandom2dArray();
 Show2dArray(arr);
 Console.WriteLine("Row number with minimum sum of elements: " + GetNumRowMinSum(arr));
-
 */
 
 // Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
