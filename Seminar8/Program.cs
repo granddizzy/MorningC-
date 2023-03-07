@@ -287,15 +287,21 @@ int[,] matrix1 = CreateRandom2dArray();
 Console.WriteLine("Second matrix parameters:");
 int[,] matrix2 = CreateRandom2dArray();
 
+Console.WriteLine("Matrix 1:");
 Show2dArray(matrix1);
+
+Console.WriteLine("Matrix 2:");
 Show2dArray(matrix2);
 
 if (CheckPpossibilityMmultiplication(matrix1, matrix2))
+{
+    Console.WriteLine("The result of multiplying matrix 1 by matrix 2:");
     Show2dArray(MatrixMultiplication(matrix1, matrix2));
+}
 else
     Console.WriteLine("Sorry, but these matrices cannot be multiplied!");
-
 */
+
 
 // Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
 // Массив размером 2 x 2 x 2
