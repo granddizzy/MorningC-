@@ -409,8 +409,7 @@ Show3dArray(arr);
 // 11 16 15 06
 // 10 09 08 07
 
-//логическое решение
-//управление индексами для подстановки следующего числа
+/*
 //первое решение
 int[,] CreateSpiralArray()
 {
@@ -473,8 +472,6 @@ int[,] CreateSpiralArray()
     return array;
 }
 
-//логическое решение
-//управление индексами для подстановки следующего числа
 //второе решение
 int[,] CreateSpiralArray2()
 {
@@ -529,7 +526,7 @@ int[,] CreateSpiralArray2()
                 directionI=0; directionJ=1;
                 if (stepHorizontal>1) stepHorizontal=stepHorizontal-2; 
                 turningNumber=turningNumber+stepHorizontal+1;
-            } 
+            }
         }
 
         i=i+directionI;
@@ -588,6 +585,9 @@ void ShowSpiralArray(int[,] arr)
     Console.WriteLine();
 }
 
-// int[,] arr = CreateSpiralArray();
-int[,] arr = CreateSpiralArray2();
+int[,] arr = CreateSpiralArray();
 ShowSpiralArray(arr);
+
+arr = CreateSpiralArray2();
+ShowSpiralArray(arr);
+*/
