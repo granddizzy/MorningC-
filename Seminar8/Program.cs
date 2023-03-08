@@ -232,13 +232,13 @@ int[] GetSumElementsRows(int[,] arr)
 int GetNumRowMinSum(int[,] arr)
 {
     int[] sumArr = GetSumElementsRows(arr);
-    int numRow=0;
+    int iMinSum=0;
 
     for (int i=1; i<sumArr.Length; i++)
-        if (sumArr[i]<sumArr[numRow])
-            numRow=i;
+        if (sumArr[i]<sumArr[iMinSum])
+            iMinSum=i;
 
-    return numRow+1;
+    return iMinSum+1;
 }
 
 int[,] arr = CreateRandom2dArray();
