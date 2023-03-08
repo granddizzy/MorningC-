@@ -336,19 +336,26 @@ int[,,] CreateRandom3dArray()
         if (z<=0) Console.Write("Invalid array size z! ");
     }
 
-    int amountNumbers = 0, minValue = 0, maxValue = 0, countElements=x*y*z;
+    int amountNumbers = 0, minValue = 1, maxValue = 0, countElements=x*y*z;
     while (amountNumbers<countElements)
     {
-        Console.Write("Input a min value:");
-        minValue = Convert.ToInt32(Console.ReadLine());
+        while (maxValue<minValue)
+        {
+            Console.Write("Input a min value:");
+            minValue = Convert.ToInt32(Console.ReadLine());
 
-        Console.Write("Input a max value:");
-        maxValue = Convert.ToInt32(Console.ReadLine());
-
-        amountNumbers=maxValue-minValue;
+            Console.Write("Input a max value:");
+            maxValue = Convert.ToInt32(Console.ReadLine());
+            if (maxValue<minValue) Console.WriteLine("The maximum value is less than the minimum value!!! ");
+        }
+        
+        amountNumbers=maxValue-minValue+1;
         
         if (amountNumbers<countElements)
+        {
             Console.WriteLine("The number of possible unique values between min and max is less than necessary!!! ");
+            maxValue=0; minValue=1;
+        }
     }
 
     int[,,] array = new int[x, y, z];
@@ -357,8 +364,8 @@ int[,,] CreateRandom3dArray()
         for (int j=0; j<y; j++)
             for (int k=0; k<z; k++)
             {
-                int value = 0; 
-                while (value==0 || IsContainedIn3dArray(array, value))
+                int value = minValue-1; 
+                while (value==minValue-1 || IsContainedIn3dArray(array, value))
                     value =  new Random().Next(minValue, maxValue+1);
     
                 array[i,j,k] = value; 
@@ -379,8 +386,7 @@ bool IsContainedIn3dArray(int[,,] arr, int value)
 
 void Show3dArray(int[,,] arr)
 {
-    for (int k=0; k<arr.GetLength(2); k++)
-    {    
+    for (int k=0; k<arr.GetLength(2); k++)  
         for(int i = 0; i < arr.GetLength(0); i++)       
         {
             for (int j=0; j<arr.GetLength(1); j++)
@@ -388,7 +394,6 @@ void Show3dArray(int[,,] arr)
 
             Console.WriteLine();
         }
-    }
 
     Console.WriteLine();
 }
@@ -404,7 +409,9 @@ Show3dArray(arr);
 // 11 16 15 06
 // 10 09 08 07
 
-/*
+//логическое решение
+//управление индексами для подстановки следующего числа
+//первое решение
 int[,] CreateSpiralArray()
 {
     int rows = 0;  
@@ -466,16 +473,81 @@ int[,] CreateSpiralArray()
     return array;
 }
 
-int GetMaxElement(int[,] arr)
+//логическое решение
+//управление индексами для подстановки следующего числа
+//второе решение
+int[,] CreateSpiralArray2()
 {
-    int res = arr[0,0];
+    int rows = 0;  
+    while (rows<=0)
+    {
+        Console.Write("Input the number of array rows:");
+        rows = Convert.ToInt32(Console.ReadLine());
+        if (rows<=0) Console.Write("Invalid number of rows! ");
+    }
 
-    for(int i = 0; i < arr.GetLength(0); i++)
-        for (int j=0; j<arr.GetLength(1); j++)
-            if (arr[i,j]>res) res = arr[i,j];
+    int cols = 0;  
+    while (cols<=0)
+    {
+        Console.Write("Input the number of array columns:");
+        cols = Convert.ToInt32(Console.ReadLine());
+        if (cols<=0) Console.Write("Invalid number of columns! ");
+    }
 
-    return res;
+    int[,] array = new int[rows, cols];
+    
+    int startNum=1, i=0, j=0, directionI=0, directionJ=1, 
+    stepHorizontal=cols-1, stepVertical=rows-1, turningNumber=startNum+stepHorizontal;  
+
+    for (int k=startNum; k<=rows*cols+startNum-1; k++)
+    {
+        array[i,j]=k;
+
+        //проверка края и изменение направления
+        if (k==turningNumber)
+        {
+            if (directionI==0 && directionJ==1) //делаем направление вниз
+            {
+                directionI=1; directionJ=0;
+                turningNumber=turningNumber+stepVertical;
+            } 
+            else if (directionI==1 && directionJ==0) //делаем направление влево
+            {
+                directionI=0; directionJ=-1;
+                turningNumber=turningNumber+stepHorizontal;
+            } 
+            else if (directionI==0 && directionJ==-1) //делаем направление вверх
+            {
+                directionI=-1; directionJ=0;
+                stepVertical=stepVertical-(stepVertical>1 ? 2 : 0);
+                turningNumber=turningNumber+stepVertical+1;
+            } 
+            else if (directionI==-1 && directionJ==0) //делаем навравление вправо  
+            {
+                directionI=0; directionJ=1;
+                stepHorizontal=stepHorizontal-(stepHorizontal>1 ? 2 : 0); 
+                turningNumber=turningNumber+stepHorizontal+1;
+            } 
+        }
+
+        i=i+directionI;
+        j=j+directionJ;
+    }
+
+
+    return array;
 }
+
+// int GetMaxElement(int[,] arr)
+// {
+//     int res = arr[0,0];
+
+//     for(int i = 0; i < arr.GetLength(0); i++)
+//         for (int j=0; j<arr.GetLength(1); j++)
+//             if (arr[i,j]>res) res = arr[i,j];
+
+//     return res;
+// }
 
 int CountOfDigit(int num)
 {
@@ -493,13 +565,13 @@ int CountOfDigit(int num)
 
 void ShowSpiralArray(int[,] arr)
 {
-    int max = GetMaxElement(arr);
+    int maxElement = arr.GetLength(0)*arr.GetLength(1);
 
     for(int i = 0; i < arr.GetLength(0); i++)
     {
         for (int j=0; j<arr.GetLength(1); j++)
         {
-            int CountOfZero = CountOfDigit(max) - CountOfDigit(arr[i,j]);
+            int CountOfZero = CountOfDigit(maxElement) - CountOfDigit(arr[i,j]);
 
             string zeroString = string.Empty;
 
@@ -515,6 +587,6 @@ void ShowSpiralArray(int[,] arr)
     Console.WriteLine();
 }
 
-int[,] arr = CreateSpiralArray();
+// int[,] arr = CreateSpiralArray();
+int[,] arr = CreateSpiralArray2();
 ShowSpiralArray(arr);
-*/
