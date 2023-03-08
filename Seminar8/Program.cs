@@ -496,7 +496,9 @@ int[,] CreateSpiralArray2()
 
     int[,] array = new int[rows, cols];
     
-    int startNum=1, i=0, j=0, directionI=0, directionJ=1, 
+    int startNum=1;
+    
+    int i=0, j=0, directionI=0, directionJ=1, 
     stepHorizontal=cols-1, stepVertical=rows-1, turningNumber=startNum+stepHorizontal;  
 
     for (int k=startNum; k<=rows*cols+startNum-1; k++)
@@ -519,13 +521,13 @@ int[,] CreateSpiralArray2()
             else if (directionI==0 && directionJ==-1) //делаем направление вверх
             {
                 directionI=-1; directionJ=0;
-                stepVertical=stepVertical-(stepVertical>1 ? 2 : 0);
+                if (stepVertical>1) stepVertical=stepVertical-2;
                 turningNumber=turningNumber+stepVertical+1;
             } 
             else if (directionI==-1 && directionJ==0) //делаем навравление вправо  
             {
                 directionI=0; directionJ=1;
-                stepHorizontal=stepHorizontal-(stepHorizontal>1 ? 2 : 0); 
+                if (stepHorizontal>1) stepHorizontal=stepHorizontal-2; 
                 turningNumber=turningNumber+stepHorizontal+1;
             } 
         }
@@ -533,7 +535,6 @@ int[,] CreateSpiralArray2()
         i=i+directionI;
         j=j+directionJ;
     }
-
 
     return array;
 }
