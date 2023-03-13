@@ -45,9 +45,19 @@ void ShowNums(int m, int n)
     }
 }
 
+void ShowNums2(int m, int n)
+{ 
+    if (m<n)
+        ShowNums2(m+1, n);
+    else if (m>n)
+        ShowNums2(m-1, n);
+
+    Console.Write(m+" ");
+}
+
 int m = Convert.ToInt32(Console.ReadLine());
 int n = Convert.ToInt32(Console.ReadLine());
-ShowNums(m, n);
+ShowNums2(m, n);
 */
 
 //Напишите программу, которая на вход принимает два числа A и B, 
@@ -83,8 +93,8 @@ Console.WriteLine(Pow(a,b));
 /*
 void ShowNaturalNumbers(int n)
 {
-    Console.Write(n-1+" ");
-    if (n-1>1) ShowNaturalNumbers(n-1);
+    Console.Write(n+" ");
+    if (n>1) ShowNaturalNumbers(n-1);
 }
 
 Console.Write("Input N:");
@@ -99,12 +109,12 @@ ShowNaturalNumbers(n);
 /*
 int GetSumNaturalElements(int n, int m)
 {
-    if (n>m+1)
-        return m + 1 + GetSumNaturalElements(n, m+1);
-     else if (n+1<m)
-         return n + 1 + GetSumNaturalElements(n+1, m);
+    if (n>m)
+        return m + GetSumNaturalElements(n, m+1);
+     else if (n<m)
+        return n + GetSumNaturalElements(n+1, m);
 
-    return 0;
+    return n;
 }
 
 Console.Write("Input N:");
