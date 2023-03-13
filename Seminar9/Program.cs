@@ -124,19 +124,26 @@ Console.WriteLine($"sum of natural elements between {n} and {m} is {sumNaturalEl
 int AcermanFunction(int m, int n)
 {   
     if (m==0) return n+1;
-
-    if (m!= 0 && n==0) return AcermanFunction(m-1, 1);
-
-    if (m>0 && n>0) return AcermanFunction(m-1, AcermanFunction(m, n-1));
-
-    return AcermanFunction(m, n);
+    else if (m>0 && n==0) return AcermanFunction(m-1, 1);
+    else return AcermanFunction(m-1, AcermanFunction(m, n-1));
 }
 
-Console.Write("Input M:");
-int m = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input N:");
-int n = Convert.ToInt32(Console.ReadLine());
+int m = -1;  
+while (m<0)
+{
+    Console.Write("Input M:");
+    m = Convert.ToInt32(Console.ReadLine());
+    if (m<0) Console.Write("Invalid value M. ");
+}
+
+int n = -1;  
+while (n<0)
+{
+    Console.Write("Input N:");
+    n = Convert.ToInt32(Console.ReadLine());
+    if (n<0) Console.Write("Invalid value N. ");
+}
 
 int a = AcermanFunction(m, n);
-Console.WriteLine(a);
+Console.WriteLine($"Value Acerman function with numbers {m} and {n} is {a}");
 */
